@@ -51,13 +51,13 @@ WMT2016 English-German | MADL | 40.68 |
 
 Model | Transformer | RNN | RNN ATT | LSTM | LSTM ATT | GRU | GRU ATT |
 ---------- | --------- | ------- | ------- | ------- | ------- | ------- | ------- |
-BLEU      | 0.416 | x | x | x | x | x | x |
-ROUGE-L-P | 0.418 | x | x | x | x | x | x |
-ROUGE-L-R | 0.446 | x | x | x | x | x | x |
-ROUGE-L-F | 0.446 | x | x | x | x | x | x |
-ROUGE-2-P | 0.255 | x | x | x | x | x | x |
-ROUGE-2-R | 0.275 | x | x | x | x | x | x |
-ROUGE-2-F | 0.275 | x | x | x | x | x | x |
+BLEU      | 0.416 | x | 0.024 | x | x | x | x |
+ROUGE-L-P | 0.418 | x | 0.088 | x | x | x | x |
+ROUGE-L-R | 0.446 | x | 0.035 | x | x | x | x |
+ROUGE-L-F | 0.446 | x | 0.035 | x | x | x | x |
+ROUGE-2-P | 0.255 | x | 0.071 | x | x | x | x |
+ROUGE-2-R | 0.275 | x | 0.026 | x | x | x | x |
+ROUGE-2-F | 0.275 | x | 0.026 | x | x | x | x |
 
 5. Todo
 - [ ] Bidirectional / N-layers에 대한 실험이 가능하도록 수정
