@@ -149,8 +149,8 @@ def get_loader(
     else:
         tgt_maxlen = test_tgt_maxlen
 
-    print(f'src_maxlen: {src_maxlen}')
-    print(f'tgt_maxlen: {tgt_maxlen}')
+    # print(f'src_maxlen: {src_maxlen}')
+    # print(f'tgt_maxlen: {tgt_maxlen}')
 
     collator = Collator(hparams.use_transformer)
     train_iterator = DataLoader(

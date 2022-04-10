@@ -263,6 +263,9 @@ class Trainer:
                 output_dim = output_.shape[-1]
                 output = output_[1:].view(-1, output_dim).to(self.hparams.device)
                 tgt = target[1:].view(-1)
+                
+                total_output.append(output_.argmax(2))
+                total_target.append(target)
             # tgt = [(tgt len - 1) * batch size]
             # output = [(tgt len - 1) * batch size, output dim]
 

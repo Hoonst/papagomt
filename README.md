@@ -20,26 +20,26 @@ Seq2Seq에 대해서 직접 구현을 해본 적은 없기 때문에,
     * 모든 Sequence는 'batch_first=True'로 설정하여 보는 것이 눈에 더 익으나, RNN 모델들은 'batch_first=False'를 선호하는 것 같았다. 따라서 batch_first를 True로 변환한 사례를 만들어보고자 했으나, 차원이 pytorch document에서 기술한 대로 return이 되지 않아 해결하기에 너무 많은 시간이 소요될 것이라 예상이 되어 스킵하였다.
 
 2. **Model 선정**
-    2-1) RNN Based
-        * RNN 계열의 기본 RNN / LSTM / GRU를 사용하여 Seq2Seq의 Encoder / Decoder로 활용하였다.
-        * 세 모델 구조는 모두 n_layers(층수) / bidirectional(양방향 여부) 등 공통적인 파라미터를 공유하고 있었기에, Seq2Seq 안에 모델들을 바꿔가며 실험할 수 있도록 디자인하였다. 
-        * 다른 파라미터들을 모델의 Output에 큰 영향을 주지 않았지만, Bidirectional은 Output 값에 대한 후처리가 다소 시간이 소요될 것 같아 스킵하였다.
-    2-2) Transformer
-        * Transformer를 활용해 Seq2Seq을 진행하였으며 Loss 감소와 빠른 속도 면에서 가장 좋은 성능을 보여주었다.
-        * Transformer를 bentrevett의 Notebook을 참고하여 구성하여 Notebook 내에서 훈련하고 Metric의 값을 도출했다.
-        * 하지만 디자인한 Trainer에 포함하는 과정에서 파악하기엔 시간이 부족했던 원인으로 계속 동일한 값이 나오게 되어 예측에 실패하였다.
+    2-1) RNN Based  
+        * RNN 계열의 기본 RNN / LSTM / GRU를 사용하여 Seq2Seq의 Encoder / Decoder로 활용하였다.  
+        * 세 모델 구조는 모두 n_layers(층수) / bidirectional(양방향 여부) 등 공통적인 파라미터를 공유하고 있었기에, Seq2Seq 안에 모델들을 바꿔가며 실험할 수 있도록 디자인하였다.   
+        * 다른 파라미터들을 모델의 Output에 큰 영향을 주지 않았지만, Bidirectional은 Output 값에 대한 후처리가 다소 시간이 소요될 것 같아 스킵하였다.  
+    2-2) Transformer  
+        * Transformer를 활용해 Seq2Seq을 진행하였으며 Loss 감소와 빠른 속도 면에서 가장 좋은 성능을 보여주었다.  
+        * Transformer를 bentrevett의 Notebook을 참고하여 구성하여 Notebook 내에서 훈련하고 Metric의 값을 도출했다.  
+        * 하지만 디자인한 Trainer에 포함하는 과정에서 파악하기엔 시간이 부족했던 원인으로 계속 동일한 값이 나오게 되어 예측에 실패하였다.  
 
-3. **Metric 선정**
-    * Metric으로는 BLEU Score와 Rouge Score를 선정하였으며, 빠른 구현을 위하여 pytorch-ignite의 기본 세팅을 통해 Metric들을 구성하였다. 
+3. **Metric 선정**  
+    * Metric으로는 BLEU Score와 Rouge Score를 선정하였으며, 빠른 구현을 위하여 pytorch-ignite의 기본 세팅을 통해 Metric들을 구성하였다.   
 
-4. **실험 결과**
-    * 2020.04.10 Paperswithcode 기준 NMT Task에 대한 BLEU Score는 다음과 같다.
-    |Dataset|Model|BLEU|
-    |------|---|---|
-    |WMT2014 English-German|Transformer Cycle|35.14|
-    |WMT2015 English-German|PS-KD|30.00|
-    |WMT2016 English-German|MADL|40.68|
-    대부분의 모델들이 30~40 수준의 BLEU Score를 달성하고 있다.
+4. **실험 결과**  
+    * 2020.04.10 Paperswithcode 기준 NMT Task에 대한 BLEU Score는 다음과 같다.  
+    |Dataset|Model|BLEU|  
+    |------|---|---|  
+    |WMT2014 English-German|Transformer Cycle|35.14|  
+    |WMT2015 English-German|PS-KD|30.00|  
+    |WMT2016 English-German|MADL|40.68|  
+    대부분의 모델들이 30~40 수준의 BLEU Score를 달성하고 있다.  
 
     * 제공 데이터 셋에 대한 BLEU / ROUGE Score
     |Model|BLEU||
