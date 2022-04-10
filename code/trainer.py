@@ -212,7 +212,7 @@ class Trainer:
                 tgt = tgt[:,1:].contiguous().view(-1)
             else:
                 output_ = self.model(
-                src, tgt, teacher_forcing_ratio=self.hparams.teacher_forcing_ratio
+                src, tgt, 0
             )
                 output_dim = output_.shape[-1]
                 output = output_[1:].view(-1, output_dim).to(self.hparams.device)
@@ -258,7 +258,7 @@ class Trainer:
                 
             else:
                 output_ = self.model(
-                src, target, teacher_forcing_ratio=self.hparams.teacher_forcing_ratio
+                src, target, 0
             )
                 output_dim = output_.shape[-1]
                 output = output_[1:].view(-1, output_dim).to(self.hparams.device)
