@@ -1,6 +1,5 @@
 import argparse
 
-
 def load_config():
     parser = argparse.ArgumentParser()
 
@@ -11,7 +10,6 @@ def load_config():
         "--seed", type=int, default=1234, help="Seed for reproducibility"
     )
     parser.add_argument("--experiment-name", type=str)
-    # parser.add_argument("--save-path", type=str, default="./src/model_save")
     parser.add_argument("--log-step", type=int, default=10)
     parser.add_argument("--rnn-cell-type", type=str, default="lstm")
     parser.add_argument(
@@ -34,7 +32,7 @@ def load_config():
     parser.add_argument("--hid-dim", type=int, default=256)
     parser.add_argument("--n-layers", type=int, default=1)
     parser.add_argument("--pad-idx", type=int, default=2)
-    
+
     # use attention / use transformer : 1
     parser.add_argument("--use-attention", type=int, default=0)
     parser.add_argument("--use-transformer", type=int, default=0)
@@ -46,7 +44,7 @@ def load_config():
 
     # training hparams
     parser.add_argument("--epoch", type=int, default=5)
-    parser.add_argument("--batch-size", type=int, default=8)
+    parser.add_argument("--batch-size", type=int, default=128)
     parser.add_argument("--max-length", type=int, default=100)
     parser.add_argument("--lr", type=float, default=5e-5)
     parser.add_argument("--dropout", type=float, default=0.1)

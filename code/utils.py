@@ -89,3 +89,18 @@ def calculate_metric(src_seq, tgt_seq, model, hparam):
     bleu_score = m.compute()
 
     return rouge_score, bleu_score
+
+def calculate_metrics(src_seq, tgt_seq):
+    src_seq = [str(i) for i in cleanse_sent(src_seq)]
+    tgt_seq = [str(j) for j in cleanse_sent(tgt_seq)]
+
+    m = Rouge(variants=["L", 2], multiref="average")
+    m.update((src_seq, [tgt_seq]))
+    rouge_score = m.compute()
+    
+    # BLEU Score
+    m = Bleu(ngram=1)
+    m.update((src_seq, [tgt_seq]))
+    bleu_score = m.compute()
+
+    return rouge_score, bleu_score

@@ -11,9 +11,9 @@ import logging
 from utils import AverageMeter
 import yaml
 import wandb
+import json
 
-from utils import translate_seq, cleanse_sent, calculate_metric
-
+from utils import translate_seq, cleanse_sent, calculate_metrics
 
 class Trainer:
     def __init__(self, hparams, loaders, model):
@@ -277,14 +277,13 @@ class Trainer:
                 # needs to be fixed
 
             else:
-                import IPython; IPython.embed(); exit(1)
                 for batch_output, batch_target in zip(total_output, total_target):
-                    for idx in range(len(batch_output)):
+                    for idx in range(batch_output.shape[1]):
                         cnt += 1
                         one_output, one_target = batch_output[:, idx], batch_target[:, idx]
                         
                         # prediction = translate_seq(one_output, self.model, self.hparams)
-                        rouge, bleu = calculate_metric(one_output, cleanse_sent(one_target), self.model, self.hparams)
+                        rouge, bleu = calculate_metrics(one_output, one_target)
                         for key in rouge:
                             metric[key] += rouge[key]
                         metric['total_bleu'] += float(bleu)
@@ -295,7 +294,9 @@ class Trainer:
         
                 for key in metric:
                     metric[key] = metric[key] / cnt
-                print(metric)
+                
+                with open(f'{self.hparams.experiment_name}-cell-{self.hparams.rnn_cell_type}-{self.version}-metric.txt', 'w') as file:
+                    file.write(json.dumps(metric))
 
         wandb.log({'test_loss': test_loss.avg})
 

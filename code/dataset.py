@@ -16,7 +16,6 @@ def open_file(file_loc: str) -> List:
     file_lines = [list(map(int, line.split())) for line in file_lines]
     return file_lines
 
-
 class SeqDataset(Dataset):
     def __init__(self, src_seq: List, tgt_seq: List):
         self.src_seq = src_seq

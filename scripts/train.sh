@@ -12,7 +12,7 @@
 # done
 
 python code/main.py\
-        --experiment-name='rnn-test'\
+        --experiment-name='rnn-seq2seq'\
         --root-path='data'\
         --rnn-cell-type='rnn'\
         --teacher-forcing-ratio=0.8\
