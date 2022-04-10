@@ -34,11 +34,12 @@ Seq2Seq에 대해서 직접 구현을 해본 적은 없기 때문에,
 
 4. **실험 결과**  
     * 2020.04.10 Paperswithcode 기준 NMT Task에 대한 BLEU Score는 다음과 같다.  
-    | Dataset | Model | BLEU |
-    | ------| --- | --- |
-    | WMT2014 English-German | Transformer Cycle | 35.14 |
-    | WMT2015 English-German | PS-KD | 30.00 |
-    | WMT2016 English-German | MADL | 40.68 |
+
+Dataset | Model | BLEU |
+-----------------| ---------- | -----|
+WMT2014 English-German | Transformer Cycle | 35.14 |
+WMT2015 English-German | PS-KD | 30.00 |
+WMT2016 English-German | MADL | 40.68 |
 
     대부분의 모델들이 30~40 수준의 BLEU Score를 달성하고 있다.  
 
