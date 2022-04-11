@@ -2,7 +2,7 @@
 papago deep learning test
 
 * Task
-Mapping Funcgion from an input sequence of integers ("source") to an output sequence of integers ("target") using training dataset
+Mapping Function from an input sequence of integers ("source") to an output sequence of integers ("target") using training dataset
 숫자 데이터 셋을 통한 Mapping으로 보이지만, 기업의 특성 상 번역 Task / Generation에 대한 Task로 예상된다.
 
 따라서 Generation으로 접근해야 하며, 이미 각 토큰에 대한 Index로 Sequence가 표현되어 있다고 보면, 오히려 파파고에서 정제를 해준 데이터라고 보면 된다.
@@ -104,6 +104,20 @@ ROUGE-2-F | 0.275 | 0.026 | 0.026 | x | x | x | x |
 - [ ] docs 관리
 - [ ] RNN 계열의 성능이 저조한 이유를 실제 Prediction과 Answer의 비교를 통해 파악 필요
 - [ ] 현재 Train.sh 로 Test가 한번에 진행이 되기 때문에 기능 분리가 필요
+- [ ] 더 효율적인 데이터 처리를 위한 Packed Sequence 적용
+- [ ] Greedy Decoding 대신 Beam Search 사용
+
+8. **Reference**
+- https://github.com/bentrevett/pytorch-seq2seq
+- https://github.com/youngerous/transformer/
+- https://github.com/IBM/pytorch-seq2seq/ : Topk Decoder
+- Packed Sequence
+    -  https://simonjisu.github.io/nlp/2018/07/05/packedsequence.html : Packed Sequence
+    - https://gist.github.com/HarshTrivedi/f4e7293e941b17d19058f6fb90ab0fec
+    - https://suzyahyah.github.io/pytorch/2019/07/01/DataLoader-Pad-Pack-Sequence.html
+- https://github.com/threelittlemonkeys/seq2seq-pytorch
+- https://github.com/sooftware/seq2seq
+- https://scale.com/blog/pytorch-improvements
 
 8. 과제 느낀점
 개념적으로는 간단한 Task이지만 직접 구현 및 Trainer 구성이 난이도가 높았다.  
@@ -116,3 +130,4 @@ ROUGE-2-F | 0.275 | 0.026 | 0.026 | x | x | x | x |
 과제 제출하겠습니다.
 
 감사합니다. 
+
