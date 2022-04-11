@@ -31,6 +31,40 @@ Seq2Seq에 대해서 직접 구현을 해본 적은 없기 때문에,
         * Transformer를 bentrevett의 Notebook을 참고하여 구성하여 Notebook 내에서 훈련하고 Metric의 값을 도출했다.  
         * 하지만 디자인한 Trainer에 포함하는 과정에서 파악하기엔 시간이 부족했던 원인으로 계속 동일한 값이 나오게 되어 예측에 실패하였다.  
 
+3. **Trainer 구성 특징**
+    * Trainer는 같은 연구실 인원 @김탁영 (https://github.com/youngerous)의 Repository를 참고
+    * Trainer는 Pytorch Lightning의 Trainer와 유사한 기능을 하며, 여기에 평소 애용하는 Wandb를 통해 실험 결과 도출
+
+4. **폴더 구조**
+```bash
+├── code: 훈련 코드
+│   ├── config.py
+│   ├── dataset.py
+│   ├── main.py
+│   ├── model.py
+│   ├── trainer.py
+│   ├── transformer.py
+│   └── utils.py
+├── data : 제공 데이터
+│   ├── README.md
+│   ├── train_source.txt
+│   ├── train_target.txt
+|   ├── test_source.txt
+│   └── test_target.txt
+├── scripts: 훈련 목적에 따른 Script
+│   ├── train_rnn.sh       
+│   ├── train_rnn_att.sh
+│   ├── train_lstm.sh
+│   ├── train_lstm_att.sh
+│   ├── train_gru.sh
+│   ├── train_gru_att.sh
+│   └── train_transformer.sh
+├── scripts
+│   └── checkpoints
+└── notebooks
+    └── Transformer_Notebook.ipynb
+``` 
+
 3. **Metric 선정**  
     * Metric으로는 BLEU Score와 Rouge Score를 선정하였으며, 빠른 구현을 위하여 pytorch-ignite의 기본 세팅을 통해 Metric들을 구성하였다.   
 
@@ -69,6 +103,7 @@ ROUGE-2-F | 0.275 | 0.026 | 0.026 | x | x | x | x |
 - [ ] Transformer가 Trainer 내에서 작동하지 않는 이유 탐색
 - [ ] docs 관리
 - [ ] RNN 계열의 성능이 저조한 이유를 실제 Prediction과 Answer의 비교를 통해 파악 필요
+- [ ] 현재 Train.sh 로 Test가 한번에 진행이 되기 때문에 기능 분리가 필요
 
 6. 과제 느낀점
 개념적으로는 간단한 Task이지만 직접 구현 및 Trainer 구성이 난이도가 높았다.  
