@@ -48,26 +48,35 @@ WMT2016 English-German | MADL | 40.68 |
 * 제공 데이터 셋에 대한 BLEU / ROUGE Score (Batch Size: 128 / Epoch 25)
 * (Random Seed에 대한 고정을 완벽하게 했다고 생각했으나, 어디선가 문제가 발생하여 실험마다 결과가 약간 상이할 수 있다.)
 * RNN의 실험이 진행 중이라 실험 종료 시 업데이트 진행
+* Transformer 만이 BLEU / ROUGE Score가 정상적으로 나타나며, RNN 계열의 모델은 모두 처참한 결과
 
 Model | Transformer | RNN | RNN ATT | LSTM | LSTM ATT | GRU | GRU ATT |
 ---------- | --------- | ------- | ------- | ------- | ------- | ------- | ------- |
-BLEU      | 0.416 | x | 0.024 | x | x | x | x |
-ROUGE-L-P | 0.418 | x | 0.088 | x | x | x | x |
-ROUGE-L-R | 0.446 | x | 0.035 | x | x | x | x |
-ROUGE-L-F | 0.446 | x | 0.035 | x | x | x | x |
-ROUGE-2-P | 0.255 | x | 0.071 | x | x | x | x |
-ROUGE-2-R | 0.275 | x | 0.026 | x | x | x | x |
-ROUGE-2-F | 0.275 | x | 0.026 | x | x | x | x |
+BLEU      | 0.416 | 0.023 | 0.024 | x | x | x | x |
+ROUGE-L-P | 0.418 | 0.089 | 0.088 | x | x | x | x |
+ROUGE-L-R | 0.446 | 0.035 | 0.035 | x | x | x | x |
+ROUGE-L-F | 0.446 | 0.035 | 0.035 | x | x | x | x |
+ROUGE-2-P | 0.255 | 0.072 | 0.071 | x | x | x | x |
+ROUGE-2-R | 0.275 | 0.026 | 0.026 | x | x | x | x |
+ROUGE-2-F | 0.275 | 0.026 | 0.026 | x | x | x | x |
 
-5. Todo
+* RNN 계열의 모델: RNN / LSTM / GRU는 모두 유사한 (저조한) 성능
+* 하지만 Loss 관점에서는 감소하는 추세를 볼 수 있었다.
+![RNN Experiment](Report.png)
+
+5. **Todo**
 - [ ] Bidirectional / N-layers에 대한 실험이 가능하도록 수정
 - [ ] Transformer가 Trainer 내에서 작동하지 않는 이유 탐색
 - [ ] docs 관리
+- [ ] RNN 계열의 성능이 저조한 이유를 실제 Prediction과 Answer의 비교를 통해 파악 필요
 
 6. 과제 느낀점
 개념적으로는 간단한 Task이지만 직접 구현 및 Trainer 구성이 난이도가 높았다.  
 파파고에 어울리는 과제이며, 더 많은 것을 해보고 회사에 보여주고 싶었지만 아쉽게도  
 익숙하지 못한 과제여서 보여주지 못한 것이 많았다. 
+
+하지만 Scratch 부터 한땀한땀 모델을 구성하는 것이 오랜만이라 재밌었으며, 앞으로도 기존에 짜여져있는 모델을 사용하는 대신
+직접 구성하는 연습을 해봐야겠다는 생각이 들었다.
 
 과제 제출하겠습니다.
 
