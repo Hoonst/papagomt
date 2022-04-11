@@ -37,7 +37,7 @@ Seq2Seq에 대해서 직접 구현을 해본 적은 없기 때문에,
 
 4. **폴더 구조**
 ```bash
-├── code: 훈련 코드
+├── code : 훈련 코드
 │   ├── config.py
 │   ├── dataset.py
 │   ├── main.py
@@ -49,9 +49,9 @@ Seq2Seq에 대해서 직접 구현을 해본 적은 없기 때문에,
 │   ├── README.md
 │   ├── train_source.txt
 │   ├── train_target.txt
-|   ├── test_source.txt
+│   ├── test_source.txt
 │   └── test_target.txt
-├── scripts: 훈련 목적에 따른 Script
+├── scripts : 훈련 목적에 따른 Script
 │   ├── train_rnn.sh       
 │   ├── train_rnn_att.sh
 │   ├── train_lstm.sh
@@ -65,10 +65,10 @@ Seq2Seq에 대해서 직접 구현을 해본 적은 없기 때문에,
     └── Transformer_Notebook.ipynb
 ``` 
 
-3. **Metric 선정**  
+5. **Metric 선정**  
     * Metric으로는 BLEU Score와 Rouge Score를 선정하였으며, 빠른 구현을 위하여 pytorch-ignite의 기본 세팅을 통해 Metric들을 구성하였다.   
 
-4. **실험 결과**  
+6. **실험 결과**  
 * 2020.04.10 Paperswithcode 기준 NMT Task에 대한 BLEU Score는 다음과 같다.  
 
 Dataset | Model | BLEU |
@@ -98,14 +98,14 @@ ROUGE-2-F | 0.275 | 0.026 | 0.026 | x | x | x | x |
 * 하지만 Loss 관점에서는 감소하는 추세를 볼 수 있었다.
 ![RNN Experiment](Report.png)
 
-5. **Todo**
+7. **Todo**
 - [ ] Bidirectional / N-layers에 대한 실험이 가능하도록 수정
 - [ ] Transformer가 Trainer 내에서 작동하지 않는 이유 탐색
 - [ ] docs 관리
 - [ ] RNN 계열의 성능이 저조한 이유를 실제 Prediction과 Answer의 비교를 통해 파악 필요
 - [ ] 현재 Train.sh 로 Test가 한번에 진행이 되기 때문에 기능 분리가 필요
 
-6. 과제 느낀점
+8. 과제 느낀점
 개념적으로는 간단한 Task이지만 직접 구현 및 Trainer 구성이 난이도가 높았다.  
 파파고에 어울리는 과제이며, 더 많은 것을 해보고 회사에 보여주고 싶었지만 아쉽게도  
 익숙하지 못한 과제여서 보여주지 못한 것이 많았다. 
