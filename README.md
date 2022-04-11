@@ -32,7 +32,7 @@ Seq2Seq에 대해서 직접 구현을 해본 적은 없기 때문에,
         * 하지만 디자인한 Trainer에 포함하는 과정에서 파악하기엔 시간이 부족했던 원인으로 계속 동일한 값이 나오게 되어 예측에 실패하였다.  
 
 3. **Trainer 구성 특징**
-    * Trainer는 같은 연구실 인원 @김탁영 (https://github.com/youngerous)의 Repository를 참고
+    * Trainer는 같은 연구실 인원 @김탁영 (https://github.com/youngerous) 의 Repository를 참고
     * Trainer는 Pytorch Lightning의 Trainer와 유사한 기능을 하며, 여기에 평소 애용하는 Wandb를 통해 실험 결과 도출
 
 4. **폴더 구조**
@@ -112,7 +112,7 @@ ROUGE-2-F | 0.275 | 0.026 | 0.026 | x | x | x | x |
 - https://github.com/youngerous/transformer/
 - https://github.com/IBM/pytorch-seq2seq/ : Topk Decoder
 - Packed Sequence
-    -  https://simonjisu.github.io/nlp/2018/07/05/packedsequence.html : Packed Sequence
+    -  https://simonjisu.github.io/nlp/2018/07/05/packedsequence.html
     - https://gist.github.com/HarshTrivedi/f4e7293e941b17d19058f6fb90ab0fec
     - https://suzyahyah.github.io/pytorch/2019/07/01/DataLoader-Pad-Pack-Sequence.html
 - https://github.com/threelittlemonkeys/seq2seq-pytorch
